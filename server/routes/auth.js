@@ -1,16 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
-const passportGoogle = require('../auth/google');
+const authController = require('../controllers/authController');
 
-router.get('/auth/google',
-  passportGoogle.authenticate('google', { scope: ['profile'] }));
-
-router.get('/auth/google/callback', 
-  passportGoogle.authenticate('google', { failureRedirect: '/login' }),
-  function(req, res) {
-    // Successful authentication, redirect home.
-    res.redirect('/');
-  });
+router.post('/signup', userController.signup);
+router.post('/login', userController.login);
+router.post('/authenticate', authController.authenticate);
 
 module.exports = router;
