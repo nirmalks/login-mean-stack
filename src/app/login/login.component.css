@@ -1,0 +1,16 @@
+.column {
+    max-width:500px;
+}
+
+.ui.header {
+        color: black;
+    /*color: #00e5ff;*/
+}
+
+.ui.button {
+    background: #00e5ff;
+}
+
+.ui.container {
+    margin-top:50px;
+}

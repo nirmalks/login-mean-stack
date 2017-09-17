@@ -2,6 +2,33 @@
     background:#00e5ff;
 }
 
-.ui.secondary.inverted.menu a.item {
-    color:black;
+.ui.secondary.inverted.menu a.item , 
+.ui.secondary.inverted.menu .link.item, .ui.secondary.inverted.menu a.item {
+    color:black !important;
+}
+
+.ui.secondary.inverted.menu .active.item {
+    background: none;
+}
+
+.github-link-btn .icon {
+    margin-left:-5px !important;
+}
+
+.ui.inverted.header {
+    color: #272727;
+    text-transform: uppercase;
+}
+
+.ui.container {
+    margin-top:50px;
+    padding: 10px;
+}
+
+.ui.text.container h1 {
+    font-size:2em;
+}
+
+h2 {
+    padding:10px;
 }

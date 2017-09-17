@@ -25,7 +25,7 @@ import { baseUrl } from './shared/baseurl';
       appRoutes
     )
   ],
-  providers: [GoogleAuthService,  {provide: 'BaseURL', useValue: baseURL}],
+  providers: [GoogleAuthService,  {provide: 'BaseURL', useValue: baseUrl}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

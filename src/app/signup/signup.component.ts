@@ -14,5 +14,6 @@ export class SignupComponent implements OnInit {
 
   googleSignup(){
     console.log("Google signup clicked");
+    window.open('http://localhost:3000/google');
   }
 }
