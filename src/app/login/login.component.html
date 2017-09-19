@@ -6,21 +6,21 @@
         Log-in to your account
       </div>
     </h2>
-    <form class="ui large form">
+    <form novalidate [formGroup]="loginForm" class="ui large form" name="login-form" (ngSubmit)="login()">
       <div class="ui stacked segment">
         <div class="field">
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <input type="text" name="email" placeholder="E-mail address">
+            <input type="text" name="email" formControlName="email" placeholder="E-mail address">
           </div>
         </div>
         <div class="field">
           <div class="ui left icon input">
             <i class="lock icon"></i>
-            <input type="password" name="password" placeholder="Password">
+            <input type="password" name="password" formControlName="password" placeholder="Password">
           </div>
         </div>
-        <div class="ui fluid large submit button">Login</div>
+        <button class="ui fluid large submit button" type="submit">Login</button>
       </div>
 
       <div class="ui error message"></div>

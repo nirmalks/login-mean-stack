@@ -13,6 +13,8 @@ import { GoogleAuthService } from './services/google-auth.service';
 import { baseUrl } from './shared/baseurl';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MainContentComponent } from './main-content/main-content.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +27,8 @@ import { MainContentComponent } from './main-content/main-content.component';
   imports: [
     BrowserModule,
     NgSemanticModule,
+    FormsModule,
+    ReactiveFormsModule,
       RouterModule.forRoot(
       appRoutes
     )
