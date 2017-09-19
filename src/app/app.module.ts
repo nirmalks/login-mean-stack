@@ -11,12 +11,16 @@ import { appRoutes } from './app.routing.module';
 import { SignupComponent } from './signup/signup.component';
 import { GoogleAuthService } from './services/google-auth.service';
 import { baseUrl } from './shared/baseurl';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MainContentComponent } from './main-content/main-content.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HeaderComponent,
-    SignupComponent
+    SignupComponent,
+    DashboardComponent,
+    MainContentComponent
   ],
   imports: [
     BrowserModule,
