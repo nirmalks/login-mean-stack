@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const config = require('./server/config/config');
 const jwt    = require('jsonwebtoken');
+const cors = require('cors');
 mongoose.connect(config.database);
 
 const passport = require('passport');
@@ -24,7 +25,8 @@ const googleAuthRoutes = require('./server/routes/google-auth');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.set('superSecret', config.secret);
-
+app.use(cors());
+ 
 app.use('/user',function(req, res, next) {
   var token = req.body.token || req.query.token || req.headers['x-access-token'];
   if (token) {
