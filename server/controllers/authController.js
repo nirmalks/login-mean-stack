@@ -15,12 +15,12 @@ authController.authenticate = (req, res , next) => {
             bcrypt.compare(req.body.password, user.password).then((resp) => {
                 console.log(resp);
                 if(resp === true) {
-                     var token = jwt.sign(user, secret.secret, {
+                     user.token = jwt.sign(user, secret.secret, {
                         expiresIn: 1440 
                     });
-                    res.json({success: true, message: "Login successfull" , user: user , token: token});
+                    res.status(200).json({success: true, message: "Login successfull" , user: user });
                 } else {
-                    res.json({success: false, message: "Invalid username / password"}); 
+                    res.status(401).json({success: false, message: "Invalid username / password"}); 
                 }
             });       
         }   
