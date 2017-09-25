@@ -15,6 +15,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MainContentComponent } from './main-content/main-content.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms'; 
+import { UserService } from './services/user-service.service';
+import {HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,11 +31,12 @@ import { FormsModule } from '@angular/forms';
     NgSemanticModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
       RouterModule.forRoot(
       appRoutes
     )
   ],
-  providers: [GoogleAuthService,  {provide: 'BaseURL', useValue: baseUrl}],
+  providers: [GoogleAuthService,  {provide: 'BaseURL', useValue: baseUrl} , UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

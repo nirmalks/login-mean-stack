@@ -22,10 +22,11 @@ export class LoginComponent implements OnInit {
      this.loginDetails = this.loginForm.value;
      this.userService.loginUser(this.loginDetails).subscribe(
        data => {
-         console.log(data);
+        localStorage.setItem('currentUser',JSON.stringify(data.user.token));
        },
        err => {
          console.log(err);
+         console.log("invalid username/password");
        }
      );
      console.log(this.loginDetails);

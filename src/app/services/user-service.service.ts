@@ -10,18 +10,12 @@ export class UserService {
   constructor(private http: HttpClient , @Inject('BaseURL') private BaseURL) { }
 
   saveUser(data){
-     return this.http.post(`${this.BaseURL}/auth/signup`, data);
+     return this.http.post(`${this.BaseURL}/auth/signup`, data).map((response: Response) => response );;
   }
 
-  loginUser(data) {
+  loginUser(data) : any{
     return this.http.post(`${this.BaseURL}/auth/login`, data)
-      .map(response => {
-       let user = response;
-       console.log(response);
-       if(user) {
-         localStorage.setItem('currentUser',JSON.stringify(user));
-       }
-       return user;
-     });;
+      .map((response: Response) => response );
   }
+  
 }

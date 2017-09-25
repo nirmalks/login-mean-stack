@@ -30,6 +30,7 @@ export class SignupComponent implements OnInit {
      this.userService.saveUser(this.userDetails).subscribe(
        data => {
          console.log(data);
+        //  localStorage.setItem('currentUser',JSON.stringify(data.user.token));
        } , 
        err => {
          console.log(err);
