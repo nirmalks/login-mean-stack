@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../shared/user';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../services/user-service.service';
+import { AuthenticationService } from '../services/authentication.service';
+import { Route , Router , ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,19 +12,23 @@ import { UserService } from '../services/user-service.service';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loginDetails: User;
-  constructor(private fb: FormBuilder , private userService : UserService) {
+  returnUrl: string;
+  constructor(private fb: FormBuilder , private userService : UserService , private authenticationService : AuthenticationService 
+  , private router : Router , private route : ActivatedRoute) {
     this.createForm();
    }
 
   ngOnInit() {
+      this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   login() {
     console.log("login clicked");
      this.loginDetails = this.loginForm.value;
-     this.userService.loginUser(this.loginDetails).subscribe(
+     this.authenticationService.login(this.loginDetails).subscribe(
        data => {
-        localStorage.setItem('currentUser',JSON.stringify(data.user.token));
+         console.log(data);
+        this.router.navigate([this.returnUrl]);
        },
        err => {
          console.log(err);

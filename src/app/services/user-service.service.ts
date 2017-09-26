@@ -11,11 +11,5 @@ export class UserService {
 
   saveUser(data){
      return this.http.post(`${this.BaseURL}/auth/signup`, data).map((response: Response) => response );;
-  }
-
-  loginUser(data) : any{
-    return this.http.post(`${this.BaseURL}/auth/login`, data)
-      .map((response: Response) => response );
-  }
-  
+  } 
 }

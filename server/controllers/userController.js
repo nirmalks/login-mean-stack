@@ -40,7 +40,7 @@ userController.login = (req, res, next) => {
                      user.token = jwt.sign(user, secret.secret, {
                         expiresIn: 1440 // expires in 24 hours
                     });
-                    res.status(200).send({success: true, message: "Login successfull" , user: user });
+                    res.status(200).send(user);
                 } else {
                     res.status(401).send({success: false, message: "Invalid username / password"}); 
                 }

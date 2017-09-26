@@ -16,7 +16,10 @@ import { MainContentComponent } from './main-content/main-content.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms'; 
 import { UserService } from './services/user-service.service';
+import { AuthenticationService } from './services/authentication.service';
 import {HttpClientModule} from '@angular/common/http';
+import { AuthGuard } from './guards/index';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +39,7 @@ import {HttpClientModule} from '@angular/common/http';
       appRoutes
     )
   ],
-  providers: [GoogleAuthService,  {provide: 'BaseURL', useValue: baseUrl} , UserService],
+  providers: [GoogleAuthService,  {provide: 'BaseURL', useValue: baseUrl} , UserService , AuthGuard , AuthenticationService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
