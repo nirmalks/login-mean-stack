@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../shared/user';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../services/user-service.service';
+import { Route , Router , ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -11,7 +12,7 @@ export class SignupComponent implements OnInit {
   userDetails: User;
   userForm: FormGroup;
   
-  constructor(private fb: FormBuilder , private userService : UserService) { 
+  constructor(private fb: FormBuilder , private userService : UserService , private router : Router) { 
     this.createForm();
   }
 
@@ -30,6 +31,7 @@ export class SignupComponent implements OnInit {
      this.userService.saveUser(this.userDetails).subscribe(
        data => {
          console.log(data);
+         this.router.navigate(['/login']);
         //  localStorage.setItem('currentUser',JSON.stringify(data.user.token));
        } , 
        err => {

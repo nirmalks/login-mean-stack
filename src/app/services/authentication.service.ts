@@ -4,7 +4,7 @@ import { HttpClient , HttpParams } from '@angular/common/http';
 @Injectable()
 export class AuthenticationService {
   user: any;
-	loginStatus: boolean = false; 
+	isLoggedIn: boolean = false; 
   redirectUrl: string ;
   constructor(private http: HttpClient , @Inject('BaseURL') private BaseURL) { }
 
@@ -19,21 +19,9 @@ login(userObj) {
       console.log(this.user.token);
       if(this.user && this.user.token) {
         localStorage.setItem('currentUser', this.user);
+        this.isLoggedIn = true;
       }
     return this.user;
-		// this.username = user.name;
-		// console.log(user);
-		//  this.isLoggedIn();
-    //     if (user ) {
-    //       // store user details and jwt token in local to keep user logged in between  page refreshes
-    //       localStorage.setItem('currentUser', JSON.stringify(user));
-					
-		// 			 localStorage.setItem('currentUser' + 'Expires', 	this.schedule);
-		// 			this.isLogged = true;
-    //     }
-    //   });
     });
-
-
 }
 }
