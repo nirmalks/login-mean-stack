@@ -32,7 +32,6 @@ export class SignupComponent implements OnInit {
        data => {
          console.log(data);
          this.router.navigate(['/login']);
-        //  localStorage.setItem('currentUser',JSON.stringify(data.user.token));
        } , 
        err => {
          console.log(err);

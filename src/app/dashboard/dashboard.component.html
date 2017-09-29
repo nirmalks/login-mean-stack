@@ -1,3 +1,23 @@
-<p>
-  dashboard works!
-</p>
+<div class="ui container">
+
+<div class="column">
+    <h2 class="ui header">
+      <div class="content">
+        User Profile
+      </div>
+    </h2>
+    <form class="ui form" name="profile-form" (ngSubmit)="submit()" [formGroup]="profileForm"> 
+    <div class="field">
+	    <input name="password" type="password" formControlName="password" placeholder="Update password"/>
+    </div>
+    <div class="field">
+	    <input name="phone" type="text" formControlName="phone" placeholder="Enter phone"/>
+    </div>
+    <div class="field">
+	    <input name="city" type="text" formControlName="city" placeholder="Enter city"/>
+    </div>
+    <button class="ui button submit primary"  [disabled]="!profileForm.valid" type="submit">Save</button>
+</form>
+</div>
+
+</div>
