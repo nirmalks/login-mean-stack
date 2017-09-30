@@ -15,7 +15,7 @@ const userController = require('./server/controllers/userController');
 
 const app = express();
 const authRoutes = require('./server/routes/auth');
-
+const userRoutes = require('./server/routes/user');
 const secret = require('./server/config/config');
 
 const noAuthRoutes = require('./server/routes/test');
@@ -54,6 +54,7 @@ app.use(passport.session());
 app.use('/auth',authRoutes);
 app.use('/',noAuthRoutes);
 app.use('/',googleAuthRoutes);
+app.use('/user',userRoutes);
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!')
 });
