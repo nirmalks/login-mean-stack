@@ -51,4 +51,39 @@ userController.login = (req, res, next) => {
         
     });
 };
+
+userController.update = (req, res , next) => {
+    let userParams = req.body;
+    User.findOne({'email': userParams.email} , function (err, user) {
+        if(err) {
+              res.json({success: false, message: "Invalid username / password"}); 
+        }
+        if(user != null) {
+            bcrypt.compare(userParams.password, user.password).then((resp) => {
+                console.log(resp);
+                if(resp === true) {
+                        user.update({phone: userParams.phone , city: userParams.city , password: userParams.password } , function(err, success){
+                            if(err){
+                                res.status(403).send({success: false, message: "Update Failed"}); 
+                            }
+                            if(success) {
+                                User.findOne({email : userParams.email }, function(err, updatedUser){
+                                    if(updatedUser !== null) {
+                                       res.status(200).send(updatedUser); 
+                                    }
+                                })          
+                            }
+                        });
+                   
+                } else {
+                    res.status(403).send({success: false, message: "Update Failed"}); 
+                }
+            });       
+        } else {
+            res.status(401).send({success: false, message: "Invalid username / password"}); 
+        }
+        
+    });
+
+};
 module.exports = userController;

@@ -27,6 +27,12 @@ const UserSchema = new Schema({
     externalType: {
         type: String,
         required: false
+    },
+    city: {
+        type:String
+    },
+    phone: {
+        type:String
     }
 });
 
