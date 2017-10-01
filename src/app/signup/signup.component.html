@@ -11,22 +11,31 @@
         <div class="field">
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <input type="text" name="email" formControlName="email" placeholder="E-mail address">
+            <input type="text" name="email" formControlName="email" placeholder="E-mail address" required>
+            <div class="ui error message" [hidden]="!(userForm.email)">
+              <div class="header">Email is required</div>
+            </div>
           </div>
         </div>
         <div class="field">
           <div class="ui left icon input">
             <i class="lock icon"></i>
-            <input type="text" name="username" formControlName="username" placeholder="Username">
+            <input type="text" name="username" formControlName="username" placeholder="Username" required>
+             <div class="ui error message" [hidden]="!(userForm.username)">
+              <div class="header">Username is required</div>
+            </div>
           </div>
         </div>
           <div class="field">
           <div class="ui left icon input">
             <i class="lock icon"></i>
-            <input type="password" name="password" formControlName="password" placeholder="Password">
+            <input type="password" name="password" formControlName="password" placeholder="Password" required>
+              <div class="ui error message" [hidden]="!(userForm.password)">
+              <div class="header">Username is required</div>
+            </div>
           </div>
         </div>
-        <button type="submit" class="ui fluid large submit button">Signup</button>
+        <button type="submit" class="ui fluid large submit button" [disabled]="!userForm.valid">Signup</button>
       </div>  
 
       <div class="ui error message"></div>
