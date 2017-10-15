@@ -1,59 +1,59 @@
 <div class="ui container">
-<div class="ui middle aligned center aligned grid">
-  <div class="column">
-    <h2 class="ui header">
-      <div class="content">
-        Sign Up
-      </div>
-    </h2>
-    <form novalidate [formGroup]="userForm" class="ui large form" (ngSubmit)="signup()">
-      <div class="ui stacked segment">
-        <div class="field">
-          <div class="ui left icon input">
-            <i class="user icon"></i>
-            <input type="text" name="email" formControlName="email" placeholder="E-mail address" required>
-            <div class="ui error message" [hidden]="!(userForm.email)">
-              <div class="header">Email is required</div>
-            </div>
-          </div>
-        </div>
-        <div class="field">
-          <div class="ui left icon input">
-            <i class="lock icon"></i>
-            <input type="text" name="username" formControlName="username" placeholder="Username" required>
-             <div class="ui error message" [hidden]="!(userForm.username)">
-              <div class="header">Username is required</div>
-            </div>
-          </div>
-        </div>
-          <div class="field">
-          <div class="ui left icon input">
-            <i class="lock icon"></i>
-            <input type="password" name="password" formControlName="password" placeholder="Password" required>
-              <div class="ui error message" [hidden]="!(userForm.password)">
-              <div class="header">Username is required</div>
-            </div>
-          </div>
-        </div>
-        <button type="submit" class="ui fluid large submit button" [disabled]="!userForm.valid">Signup</button>
-      </div>  
+	<div class="ui middle aligned center aligned grid">
+		<div class="column">
+			<h2 class="ui header">
+				<div class="content">
+					Sign Up
+				</div>
+			</h2>
+			<form novalidate [formGroup]="userForm" class="ui large form" (ngSubmit)="signup()">
+				<div class="ui stacked segment">
+					<div class="field">
+						<div class="ui left icon input">
+							<i class="user icon"></i>
+							<input type="text" name="email" formControlName="email" placeholder="E-mail address" required>
+							<div class="ui error message" [hidden]="!(userForm.email)">
+								<div class="header">Email is required</div>
+							</div>
+						</div>
+					</div>
+					<div class="field">
+						<div class="ui left icon input">
+							<i class="lock icon"></i>
+							<input type="text" name="username" formControlName="username" placeholder="Username" required>
+							<div class="ui error message" [hidden]="!(userForm.username)">
+								<div class="header">Username is required</div>
+							</div>
+						</div>
+					</div>
+					<div class="field">
+						<div class="ui left icon input">
+							<i class="lock icon"></i>
+							<input type="password" name="password" formControlName="password" placeholder="Password" required>
+							<div class="ui error message" [hidden]="!(userForm.password)">
+								<div class="header">Username is required</div>
+							</div>
+						</div>
+					</div>
+					<button type="submit" class="ui fluid large submit button" [disabled]="!userForm.valid">Signup</button>
+				</div>
 
-      <div class="ui error message"></div>
+				<div class="ui error message"></div>
 
-    </form>
+			</form>
 
-    <div class="ui message">
-      Already have an account? <a routerLink="/login">Login</a>
-    </div>
+			<div class="ui message">
+				Already have an account? <a routerLink="/login">Login</a>
+			</div>
 
-    <div class="ui message">
-      Signup using your social accounts.
-    </div>
-    
-    <button (click)="googleSignup()" class="ui google plus button">
+			<div class="ui message">
+				Signup using your social accounts.
+			</div>
+
+			<button (click)="googleSignup()" class="ui google plus button">
       <i class="google plus icon"></i>
       Google Plus Signup
     </button>
-  </div>
-</div>
+		</div>
+	</div>
 </div>

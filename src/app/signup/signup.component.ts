@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../shared/user';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../services/user-service.service';
-import { Route , Router , ActivatedRoute } from '@angular/router';
+import { Route, Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -11,39 +11,37 @@ import { Route , Router , ActivatedRoute } from '@angular/router';
 export class SignupComponent implements OnInit {
   userDetails: User;
   userForm: FormGroup;
-  
-  constructor(private fb: FormBuilder , private userService : UserService , private router : Router) { 
+
+  constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {
     this.createForm();
   }
 
   ngOnInit() {
   }
 
-  googleSignup(){
-    console.log("Google signup clicked");
+  googleSignup() {
     window.open('http://localhost:3000/google');
   }
 
-   signup() {
+  signup() {
     console.log("login clicked");
-     this.userDetails = this.userForm.value;
-     console.log(this.userDetails);
-     this.userService.saveUser(this.userDetails).subscribe(
-       data => {
-         console.log(data);
-         this.router.navigate(['/login']);
-       } , 
-       err => {
-         console.log(err);
-       }
-     )
+    this.userDetails = this.userForm.value;
+    console.log(this.userDetails);
+    this.userService.saveUser(this.userDetails).subscribe(
+      data => {
+        this.router.navigate(['/login']);
+      },
+      err => {
+        console.log(err);
+      }
+    )
   }
 
   createForm() {
-       this.userForm = this.fb.group({
-      username: ['', [Validators.required]  ],
-      email: ['', [Validators.required, Validators.email]  ],
-      password: ['', [Validators.required] ],
+    this.userForm = this.fb.group({
+      username: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
     });
   }
 }
