@@ -44,7 +44,7 @@
 // module.exports = passport;
 
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
-const User = require('../models/User');
+const User = require('../models/user');
 
 var passport = require('passport');
 var configAuth = require('../config/auth');
