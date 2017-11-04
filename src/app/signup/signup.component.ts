@@ -24,15 +24,12 @@ export class SignupComponent implements OnInit {
   }
 
   signup() {
-    console.log("login clicked");
     this.userDetails = this.userForm.value;
-    console.log(this.userDetails);
     this.userService.saveUser(this.userDetails).subscribe(
       data => {
         this.router.navigate(['/login']);
       },
       err => {
-        console.log(err);
       }
     )
   }

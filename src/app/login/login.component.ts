@@ -23,15 +23,12 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log("login clicked");
     this.loginDetails = this.loginForm.value;
     this.authenticationService.login(this.loginDetails).subscribe(
       data => {
         this.router.navigate([this.returnUrl]);
       },
       err => {
-        console.log(err);
-        console.log("invalid username/password");
       }
     );
   }

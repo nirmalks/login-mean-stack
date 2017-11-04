@@ -18,20 +18,16 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.currentUser = JSON.parse(localStorage.getItem("currentUser"));
-    console.log(this.currentUser);
   }
 
   submit(){
-    console.log("form submitted");
     this.currentUser.password = this.profileForm.value.password;
     this.currentUser.phone = this.profileForm.value.phone;
     this.currentUser.city = this.profileForm.value.city;
     this.userService.updateUser(this.currentUser).subscribe(
        data => {
-         console.log(data);
        },
        err => {
-         console.log(err);
        }
      );;
   }
