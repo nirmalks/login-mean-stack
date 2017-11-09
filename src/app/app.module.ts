@@ -17,7 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { UserService } from './services/user-service.service';
 import { AuthenticationService } from './services/authentication.service';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from './guards/index';
 
 @NgModule({
@@ -34,7 +34,7 @@ import { AuthGuard } from './guards/index';
     NgSemanticModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule,
+    HttpClientModule,
     RouterModule.forRoot(
       appRoutes
     )
