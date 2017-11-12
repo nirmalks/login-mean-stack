@@ -10,6 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "run-server": "nodemon server.js",
+    "preinstall": "npm install -g angular-cli",
     "postinstall": "ng build"
   },
   "private": true,
