@@ -7,7 +7,7 @@ mongoose.Promise = global.Promise;
 const config = require('./server/config/config');
 const jwt    = require('jsonwebtoken');
 const cors = require('cors');
-mongoose.connect(config.database);
+mongoose.connect(process.env.MONGOLAB_URI || config.database);
 
 const passport = require('passport');
 
@@ -24,6 +24,12 @@ const googleAuthRoutes = require('./server/routes/google-auth');
 /*express middleware */
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
+
+
+// Create link to Angular build directory
+var distDir = __dirname + "/dist/";
+app.use(express.static(distDir));
+
 app.set('superSecret', config.secret);
 app.use(cors());
  
