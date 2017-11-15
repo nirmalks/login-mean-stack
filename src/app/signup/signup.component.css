@@ -2,15 +2,25 @@
     max-width:500px;
 }
 
-.ui.header {
-    color: black;
-    /*color: #00e5ff;*/
+.button {
+    background: #00d1b2;
+    color:#fff;
 }
 
-.ui.button {
-    background: #00e5ff;
+.container{
+    max-width:500px;
+    margin: 10px auto;
 }
 
-.ui.container {
-    margin-top:50px;
+.google-plus-button {
+    background:#d34836;
 }
+
+.google-plus-icon {
+    padding-right: 5px;
+}
+
+.messages {
+    margin-top:20px;
+}
+
