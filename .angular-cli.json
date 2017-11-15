@@ -20,11 +20,10 @@
       "prefix": "app",
       "styles": [
         "styles.css",
-        "../semantic/semantic.min.css"
+        "../node_modules/bulma/css/bulma.css"
       ],
       "scripts": [
-         "../node_modules/jquery/dist/jquery.min.js",
-        "../semantic/semantic.min.js"
+         "../node_modules/jquery/dist/jquery.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

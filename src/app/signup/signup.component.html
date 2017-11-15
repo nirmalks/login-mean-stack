@@ -1,59 +1,62 @@
-<div class="ui container">
-	<div class="ui middle aligned center aligned grid">
-		<div class="column">
-			<h2 class="ui header">
-				<div class="content">
-					Sign Up
-				</div>
-			</h2>
-			<form novalidate [formGroup]="userForm" class="ui large form" (ngSubmit)="signup()">
-				<div class="ui stacked segment">
-					<div class="field">
-						<div class="ui left icon input">
-							<i class="user icon"></i>
-							<input type="text" name="email" formControlName="email" placeholder="E-mail address" required>
-							<div class="ui error message" [hidden]="!(userForm.email)">
-								<div class="header">Email is required</div>
-							</div>
-						</div>
-					</div>
-					<div class="field">
-						<div class="ui left icon input">
-							<i class="lock icon"></i>
-							<input type="text" name="username" formControlName="username" placeholder="Username" required>
-							<div class="ui error message" [hidden]="!(userForm.username)">
-								<div class="header">Username is required</div>
-							</div>
-						</div>
-					</div>
-					<div class="field">
-						<div class="ui left icon input">
-							<i class="lock icon"></i>
-							<input type="password" name="password" formControlName="password" placeholder="Password" required>
-							<div class="ui error message" [hidden]="!(userForm.password)">
-								<div class="header">Username is required</div>
-							</div>
-						</div>
-					</div>
-					<button type="submit" class="ui fluid large submit button" [disabled]="!userForm.valid">Signup</button>
-				</div>
-
-				<div class="ui error message"></div>
-
-			</form>
-
-			<div class="ui message">
-				Already have an account? <a routerLink="/login">Login</a>
-			</div>
-
-			<div class="ui message">
-				Signup using your social accounts.
-			</div>
-
-			<button (click)="googleSignup()" class="ui google plus button">
-      <i class="google plus icon"></i>
-      Google Plus Signup
-    </button>
+<div class="container">
+	<h2 class="header">
+		<div class="content">
+			Sign Up
 		</div>
+	</h2>
+
+	<form novalidate [formGroup]="userForm" class="large form" (ngSubmit)="signup()">
+		<div class="field">
+			<label class="label">Email</label>
+			<div class="control">
+				<input type="text" class="input" name="email" formControlName="email" placeholder="E-mail address" required>
+				<div class="help is-danger" [hidden]="!(userForm.email)">
+					<div>Email is required</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="field">
+			<label class="label">Password</label>
+			<div class="control">
+				<input type="text" class="input" name="username" formControlName="username" placeholder="Username" required>
+				<div class="help is-danger" [hidden]="!(userForm.username)">
+					<div>Username is required</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="field">
+			<label class="label">Username</label>
+			<input type="password" class="input" name="password" formControlName="password" placeholder="Password" required>
+			<div class="help is-danger" [hidden]="!(userForm.password)">
+				<div>Username is required</div>
+			</div>
+		</div>
+
+		<div class="field">
+			<div class="control">
+				<button type="submit" class="fluid large submit button" [disabled]="!userForm.valid">Signup</button>
+			</div>
+
+		</div>
+	</form>
+
+	<div class="messages">
+		<div class="notification">
+			Already have an account?
+			<a routerLink="/login">Login</a>
+		</div>
+	
+		<div class="notification">
+			Signup using your social accounts.
+		</div>
+
+		<button (click)="googleSignup()" class="button google-plus-button">
+			<i class="fa fa-google-plus google-plus-icon"></i>
+			Google Plus Signup
+		</button>
 	</div>
+
+
 </div>

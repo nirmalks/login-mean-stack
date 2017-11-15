@@ -1,0 +1,12 @@
+.main-hero {
+    height: 300px;
+}
+
+.subtitle {
+    color:rgba(33, 24, 24, 0.9) !important;
+    margin-top: 1.5em !important; 
+}
+
+.github-icon {
+    padding-right:5px;
+}

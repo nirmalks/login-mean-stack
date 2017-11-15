@@ -1,35 +1,34 @@
-<div class="ui container">
-	<div class="ui middle aligned center aligned grid">
-		<div class="column">
-			<h2 class="ui header">
-				<div class="content">
-					Log-in to your account
-				</div>
-			</h2>
-			<form novalidate [formGroup]="loginForm" class="ui large form" name="login-form" (ngSubmit)="login()">
-				<div class="ui stacked segment">
-					<div class="field">
-						<div class="ui left icon input">
-							<i class="user icon"></i>
-							<input type="text" name="email" formControlName="email" placeholder="E-mail address">
-						</div>
-					</div>
-					<div class="field">
-						<div class="ui left icon input">
-							<i class="lock icon"></i>
-							<input type="password" name="password" formControlName="password" placeholder="Password">
-						</div>
-					</div>
-					<button class="ui fluid large submit button" type="submit" [disabled]="!loginForm.valid">Login</button>
-				</div>
+<div class="container">
+	<h2 class="header">
+		<div class="content">
+			Log-in to your account
+		</div>
+	</h2>
 
-				<div class="ui error message"></div>
-
-			</form>
-
-			<div class="ui message">
-				New to us? <a routerLink="/signup">Sign Up</a>
+	<form novalidate [formGroup]="loginForm" name="login-form" (ngSubmit)="login()">
+		<div class="field">
+			<label class="label">Email</label>
+			<div class="control">
+				<input class="input" type="email" name="email" formControlName="email" placeholder="E-mail address">
 			</div>
 		</div>
+
+		<div class="field">
+			<label class="label">Password</label>
+			<div class="control">
+				<input class="input" type="password" name="password" formControlName="password" placeholder="Password">
+			</div>
+		</div>
+
+		<div class="field is-grouped">
+			<div class="control">
+				<button class="button" type="submit" [disabled]="!loginForm.valid">Login</button>
+			</div>
+
+		</div>
+	</form>
+	<div class="signup-message">
+		New to us?
+		<a routerLink="/signup">Sign Up</a>
 	</div>
 </div>

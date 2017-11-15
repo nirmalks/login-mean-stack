@@ -1,16 +1,13 @@
-.column {
+.container{
     max-width:500px;
+    margin: 10px auto;
 }
 
-.ui.header {
-        color: black;
-    /*color: #00e5ff;*/
+.button {
+    background: #00d1b2;
+    color:#fff;
 }
 
-.ui.button {
-    background: #00e5ff;
-}
-
-.ui.container {
-    margin-top:50px;
+.signup-message {
+    margin-top:20px;
 }

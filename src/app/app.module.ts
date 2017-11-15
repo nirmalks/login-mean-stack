@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 
-import { NgSemanticModule } from 'ng-semantic/ng-semantic';
+
 import { HeaderComponent } from './header/header.component';
 import { RouterModule, Routes } from '@angular/router';
 import { appRoutes } from './app.routing.module';
@@ -31,7 +31,6 @@ import { AuthGuard } from './guards/index';
   ],
   imports: [
     BrowserModule,
-    NgSemanticModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
