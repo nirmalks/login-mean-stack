@@ -1,23 +1,44 @@
-<div class="ui container">
+<div class="container">
+  <h2 class="header">
+    <div class="content">
+      User Profile
+    </div>
+  </h2>
 
-<div class="column">
-    <h2 class="ui header">
-      <div class="content">
-        User Profile
+  <form class="form" name="profile-form" (ngSubmit)="submit()" [formGroup]="profileForm">
+    <div class="field">
+      <label class="label">Email</label>
+      <div class="control">
+        <input class="input" name="password" type="password" formControlName="password" placeholder="Update password" />
       </div>
-    </h2>
-    <form class="ui form" name="profile-form" (ngSubmit)="submit()" [formGroup]="profileForm"> 
-    <div class="field">
-	    <input name="password" type="password" formControlName="password" placeholder="Update password"/>
     </div>
-    <div class="field">
-	    <input name="phone" type="text" formControlName="phone" placeholder="Enter phone"/>
-    </div>
-    <div class="field">
-	    <input name="city" type="text" formControlName="city" placeholder="Enter city"/>
-    </div>
-    <button class="ui button submit primary"  [disabled]="!profileForm.valid" type="submit">Save</button>
-</form>
-</div>
 
+    <div class="field">
+      <label class="label">Password</label>
+      <div class="control">
+        <input class="input" name="password" type="password" formControlName="password" placeholder="Update password" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Password</label>
+      <div class="control">
+        <input class="input" name="phone" type="text" formControlName="phone" placeholder="Enter phone" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Password</label>
+      <div class="control">
+        <input class="input" name="city" type="text" formControlName="city" placeholder="Enter city" />
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <button class="button submit is-primary" [disabled]="!profileForm.valid" type="submit">Save</button>
+      </div>
+    </div>
+
+  </form>
 </div>
