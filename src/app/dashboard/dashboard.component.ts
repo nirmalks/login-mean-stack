@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgSemanticModule } from "ng-semantic";
 import { User } from '../shared/user';
 import { UserService } from '../services/user-service.service';
 @Component({

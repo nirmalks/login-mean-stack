@@ -1,17 +1,14 @@
 <div class="container">
-	<h2 class="header">
-		<div class="content">
-			Sign Up
-		</div>
-	</h2>
-
+	<div class="content">
+		<h2>Sign Up </h2>
+	</div>
 	<form novalidate [formGroup]="userForm" class="large form" (ngSubmit)="signup()">
 		<div class="field">
 			<label class="label">Email</label>
 			<div class="control">
 				<input type="text" class="input" name="email" formControlName="email" placeholder="E-mail address" required>
-				<div class="help is-danger" [hidden]="!(userForm.email)">
-					<div>Email is required</div>
+				<div class="is-danger" [hidden]="!(userForm.email)">
+					Email is required
 				</div>
 			</div>
 		</div>
@@ -20,8 +17,8 @@
 			<label class="label">Password</label>
 			<div class="control">
 				<input type="text" class="input" name="username" formControlName="username" placeholder="Username" required>
-				<div class="help is-danger" [hidden]="!(userForm.username)">
-					<div>Username is required</div>
+				<div class="is-danger" [hidden]="!(userForm.username)">
+					Username is required
 				</div>
 			</div>
 		</div>
@@ -29,8 +26,8 @@
 		<div class="field">
 			<label class="label">Username</label>
 			<input type="password" class="input" name="password" formControlName="password" placeholder="Password" required>
-			<div class="help is-danger" [hidden]="!(userForm.password)">
-				<div>Username is required</div>
+			<div class="is-danger" [hidden]="!(userForm.password)">
+				Password is required
 			</div>
 		</div>
 
@@ -42,21 +39,21 @@
 		</div>
 	</form>
 
-	<div class="messages">
-		<div class="notification">
+	<div>
+		<div class="message">
 			Already have an account?
 			<a routerLink="/login">Login</a>
 		</div>
-	
-		<div class="notification">
+
+		<div class="message">
 			Signup using your social accounts.
 		</div>
-
 		<button (click)="googleSignup()" class="button google-plus-button">
-			<i class="fa fa-google-plus google-plus-icon"></i>
-			Google Plus Signup
-		</button>
+				<i class="fa fa-google-plus google-plus-icon"></i>
+				Google Plus Signup
+			</button>
 	</div>
+
 
 
 </div>
