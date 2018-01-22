@@ -1,11 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
-
 import { AuthenticationService } from './authentication.service';
-
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { baseUrl } from '../shared/baseurl';
 describe('AuthenticationService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [AuthenticationService]
+      imports: [HttpClientTestingModule],
+      providers: [
+        AuthenticationService,
+        { provide: "BaseURL", useValue: baseUrl }
+      ]
     });
   });
 

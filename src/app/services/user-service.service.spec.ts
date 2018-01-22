@@ -1,11 +1,13 @@
 import { TestBed, inject } from '@angular/core/testing';
-
 import { UserService } from './user-service.service';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { baseUrl } from '../shared/baseurl';
 
 describe('UserService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [UserService]
+      imports: [HttpClientTestingModule],
+      providers: [UserService, { provide: "BaseURL", useValue: baseUrl }]
     });
   });
 
