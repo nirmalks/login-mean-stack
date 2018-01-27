@@ -4,11 +4,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../services/user-service.service';
 import { AuthenticationService } from '../services/authentication.service';
 import { Route, Router, ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loginDetails: User;
