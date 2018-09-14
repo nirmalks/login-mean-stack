@@ -7,7 +7,7 @@
 			<label class="label">Email</label>
 			<div class="control">
 				<input type="text" class="input" name="email" formControlName="email" placeholder="E-mail address" required>
-				<div class="is-danger" [hidden]="!(userForm.email)">
+				<div class="is-danger" *ngIf="userForm.controls.email.invalid && (userForm.controls.email.dirty || userForm.controls.email.touched)">
 					Email is required
 				</div>
 			</div>
@@ -17,7 +17,7 @@
 			<label class="label">Username</label>
 			<div class="control">
 				<input type="text" class="input" name="username" formControlName="username" placeholder="Username" required>
-				<div class="is-danger" [hidden]="!(userForm.username)">
+				<div class="is-danger" *ngIf="userForm.controls.username.invalid && (userForm.controls.username.dirty || userForm.controls.username.touched)">
 					Username is required
 				</div>
 			</div>
@@ -26,7 +26,7 @@
 		<div class="field">
 			<label class="label">Password</label>
 			<input type="password" class="input" name="password" formControlName="password" placeholder="Password" required>
-			<div class="is-danger" [hidden]="!(userForm.password)">
+			<div class="is-danger" *ngIf="userForm.controls.password.invalid && (userForm.controls.password.dirty || userForm.controls.password.touched)">
 				Password is required
 			</div>
 		</div>

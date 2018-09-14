@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../shared/user';
+import { ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../services/user-service.service';
 import { Route, Router, ActivatedRoute } from '@angular/router';
@@ -13,10 +14,10 @@ export class SignupComponent implements OnInit {
   userForm: FormGroup;
 
   constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {
-    this.createForm();
   }
 
   ngOnInit() {
+    this.createForm();
   }
 
   googleSignup() {
