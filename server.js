@@ -8,7 +8,11 @@ const config = require('./server/config/config');
 const jwt    = require('jsonwebtoken');
 const cors = require('cors');
 mongoose.connect(process.env.MONGOLAB_URI || config.database);
-
+const morgan = require('morgan');
+const fs = require('fs');
+const path = require('path');
+const rfs = require('rotating-file-stream');
+const winston = require('winston');
 const passport = require('passport');
 
 const userController = require('./server/controllers/userController');
@@ -25,6 +29,43 @@ const googleAuthRoutes = require('./server/routes/google-auth');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
+// create a write stream (in append mode)
+const logDirectory = path.join(__dirname, 'log');
+
+// ensure log directory exists
+fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
+
+// create a rotating write stream
+const accessLogStream = rfs('combined.log', {
+  interval: '1d', // rotate daily
+  path: logDirectory
+});
+
+// setup the logger
+app.use(morgan('combined', { stream: accessLogStream }));
+
+const logger = winston.createLogger({
+  level: 'info',
+  format: winston.format.json(),
+  transports: [
+    //
+    // - Write to all logs with level `info` and below to `combined.log` 
+    // - Write all logs error (and below) to `error.log`.
+    //
+    new winston.transports.File({ filename: 'log/error.log', level: 'error' }),
+    new winston.transports.File({ filename: 'log/combined.log' })
+  ]
+});
+
+//
+// If we're not in production then log to the `console` with the format:
+// `${info.level}: ${info.message} JSON.stringify({ ...rest }) `
+// 
+if (process.env.NODE_ENV !== 'production') {
+  logger.add(new winston.transports.Console({
+    format: winston.format.simple()
+  }));
+}
 
 // Create link to Angular build directory
 var distDir = __dirname + "/dist/";
