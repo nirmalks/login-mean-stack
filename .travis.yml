@@ -6,6 +6,7 @@ node_js:
 
 services:
   - mongodb
+  - redis-server
 
 addons:
 apt:
@@ -22,6 +23,7 @@ before_install:
 script:
   - ng build --prod
   - npm run start
+
 before_script:
 - npm install -g angular-cli
 - "sudo chown root /opt/google/chrome/chrome-sandbox"
