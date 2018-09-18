@@ -22,9 +22,10 @@ before_install:
  
 script:
   - ng build --prod
-  - npm run start &
-
+  - karma start karma.conf.js --single-run
+  
 before_script:
 - npm install -g angular-cli
+- npm install -g karma
 - "sudo chown root /opt/google/chrome/chrome-sandbox"
 - "sudo chmod 4755 /opt/google/chrome/chrome-sandbox"
