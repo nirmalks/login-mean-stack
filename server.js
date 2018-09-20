@@ -73,7 +73,7 @@ app.use(express.static(distDir));
 
 app.set('superSecret', config.secret);
 app.use(cors());
- 
+
 app.use('/user',function(req, res, next) {
   var token = req.body.token || req.query.token || req.headers['x-access-token'];
   if (token) {
